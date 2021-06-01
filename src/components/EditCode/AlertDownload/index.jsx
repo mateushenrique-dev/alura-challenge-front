@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import domtoimage from 'dom-to-image';
-import { saveAs } from 'file-saver'
 import ConfProject from '../../../contexts/ConfProject';
 
 import './style.scss';
