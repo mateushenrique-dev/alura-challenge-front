@@ -1,0 +1,103 @@
+.menu {
+  width: 18%;
+
+  &__title {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-size: 12px;
+  }
+
+  &__tab {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: rgba($color: #fff, $alpha: 0.54);
+    margin: 16px 0;
+
+    &__image {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      justify-content: center;
+      padding: 16px;
+      background: rgba(80, 129, 251, 0.16);
+      border-radius: 16px;
+      transition: 0.2s;
+
+      & svg {
+        width: 24px;
+      }
+    }
+
+    &__name {
+      justify-self: flex-start;
+      transition: 0.2s;
+    }
+    
+    &:not(&-active):hover {
+      cursor: pointer;
+        
+      .menu__tab__image {
+        background: rgba(80, 129, 251, 0.64);
+        color: #fff;
+      }
+
+      .menu__tab__name {
+        color: #FFFFFF;
+      }
+    }
+
+    &-active {
+      & div {
+        background: #5081fb;
+        color: #fff;
+      }
+    
+      & p {
+        color: #fff;
+      }
+    }
+  }
+
+  .header__profile {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .menu {
+    display: none;
+
+    .header__profile {
+      display: flex;
+    }
+  }
+
+  .menu__mobile {
+    display: block;
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    background: #2D415B;
+    width: 254px;
+    height: 100vh;
+    padding: 24px;
+    border-radius: 8px;
+
+    h2 {
+      display: none;
+    }
+  }
+
+  .mobile {
+    &__divisor {
+      display: block;
+      width: 95%;
+      height: 1px;
+      background: #fff;
+      opacity: 0.08;
+      margin: 24px 0;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.erro404 {
+  width: 100%;
+  display: grid;
+  place-content: center;
+  color: #fff;
+
+  &__title {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    font-size: 21px;
+  }
+}

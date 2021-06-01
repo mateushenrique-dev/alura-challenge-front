@@ -1,0 +1,40 @@
+.body {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 40px;
+}
+
+.challenge {
+  max-width: 1340px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+  .body {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  .body {
+    flex-direction: column;
+  }
+}
+
+body {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(80, 129, 251, 0.08);
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(80, 129, 251, 0.16);
+    border-radius: 20px;
+  }
+
+}

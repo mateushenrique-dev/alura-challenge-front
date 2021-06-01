@@ -1,0 +1,17 @@
+.comunity {
+  width: 78.5%;
+  //max-height: 78vh;
+  //overflow-y: scroll;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+
+}
+
+@media (max-width: 1200px) {
+  .comunity {
+    width: 100%;
+    grid-template-columns: 100%;
+  }
+}

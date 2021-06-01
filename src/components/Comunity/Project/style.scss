@@ -1,0 +1,99 @@
+.project {
+  background: rgba(0, 0, 0, 0.16);
+  border-radius: 8px;
+
+  &__code {
+    height: 288px;
+    background: #9AFF6B;
+    border-radius: 8px;
+    padding: 24px;
+    
+    .codeEditor__highlight {
+      resize: none;
+
+      &__circle-1, &__circle-2, &__circle-3 {
+        width: 9px;
+        height: 9px;
+      }
+    }
+  }
+
+  &__infos {
+    padding: 24px;
+
+    &__title {
+      font-size: 21px;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 8px;
+      line-height: 31px;
+    }
+    &__description {
+      font-size: 16px;
+      color: #fff;
+      opacity: 0.8;
+      line-height: 24px;
+    }
+  }
+
+  &:hover &__social {
+    display: flex;
+    transition: 0.5s;
+  }
+
+  &__social {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px 24px 24px;
+    color: #fff;
+
+    &__interations {
+      display: flex;
+      transition: 0.5s;
+      gap: 18px;
+      
+      &__comments {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &__icon {
+          &:hover {
+            color: red;
+            cursor: pointer;
+          }
+        }
+      }
+
+      &__reactions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        &__icon {
+          &:hover {
+            color: red;
+            transition: 0.2s;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    &__profile {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+
+}
+
+@media (max-width: 800px) {
+  .project {
+    &__social {
+      display: flex;
+    }
+  }
+}

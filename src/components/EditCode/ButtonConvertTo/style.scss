@@ -1,0 +1,24 @@
+.convert {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  background: #5081FB;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background: #7BA4FC;
+    cursor: pointer;
+  }
+
+  &:active {
+    border: 4px solid #7BA4FC;
+  }
+    
+  &:focus {
+    background: #96B9FD;
+  }
+}
