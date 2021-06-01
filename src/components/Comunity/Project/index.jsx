@@ -11,7 +11,7 @@ function Project({ nome, descricao, color, code }) {
   const codeArea = useRef(null)
 
   useEffect(() => {
-    const codeField = codeArea.current.lastChild.lastChild.lastChild
+    const codeField = codeArea.current.lastChild.children[1]
     hljs.highlightElement(codeField)
   })
 
