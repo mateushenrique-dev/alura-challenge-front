@@ -8,18 +8,16 @@ import './highlight.css'
 
 function EditorDeCodigo() {
 
-  const { codeFieldRef, setHighlight, highlight } = useConfProject()
+  const { setHighlight, highlight } = useConfProject()
 
   useEffect(() => {
     highlight &&
       hljs.highlightAll()
-
-    console.log(highlight)
   }, [highlight])
 
   return (
     <section className="codeEditorContainer">
-      <div className="codeEditor" ref={codeFieldRef}>
+      <div className="codeEditor">
         <CodeField editable={true} />
       </div>
       <div className="viewHighLight" onClick={() => setHighlight(true)}><p className="viewHighLight__text">Visualizar com o highlight</p></div>

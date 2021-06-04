@@ -1,43 +1,41 @@
 import React from 'react';
 import domtoimage from 'dom-to-image';
-import useConfProject from '../../../hooks';
 
 import './style.scss';
 
-function AlertDownload({ popupRef }) {
+function AlertDownload() {
 
-  const { codeFieldRef } = useConfProject()
-
-  function convertToImage() {
-    const extensao = popupRef.current.lastChild.children[1].value
+  function convertToImage(e) {
+    const extensao = e.currentTarget.parentNode.parentNode.children[1].value
+    const codeField = e.target.offsetParent.parentElement.previousSibling.parentElement.previousElementSibling.children[0]
 
     if (extensao === 'Png') {
-      domtoimage.toPng(codeFieldRef.current)
+      domtoimage.toPng(codeField)
         .then((response) => {
           window.saveAs(response, `meuprojeto.png`);
         })
     }
     else if (extensao === 'Jpeg') {
-      domtoimage.toJpeg(codeFieldRef.current, { quality: 0.85 })
+      domtoimage.toJpeg(codeField, { quality: 0.85 })
         .then((response) => {
           window.saveAs(response, `meuprojeto.jpeg`);
         })
     }
     else if (extensao === 'Svg') {
-      domtoimage.toSvg(codeFieldRef.current)
+      domtoimage.toSvg(codeField)
         .then((response) => {
           window.saveAs(response, `meuprojeto.svg`);
         })
     }
   }
 
-  function handleClosePopUp() {
-    const popUp = popupRef.current
+  function handleClosePopUp(e) {
+    const popUp = e.currentTarget.offsetParent
     popUp.classList.remove('popup__active')
   }
 
   return (
-    <section className="alert__container" ref={popupRef}>
+    <section className="alert__container">
       <section className="alert">
         <h1 className="alert__title">Escolha uma extensão</h1>
         <select className="alert__select" name="" id="">

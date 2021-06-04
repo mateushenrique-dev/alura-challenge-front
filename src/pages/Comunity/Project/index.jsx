@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import CodeField from '../../EditCode/EditorDeCodigo/CodeField';
 import { AiFillHeart, AiFillMessage } from "react-icons/ai";
 import hljs from 'highlight.js';
@@ -8,17 +8,14 @@ import '../../EditCode/EditorDeCodigo/highlight.css';
 
 function Project({ nome, descricao, color, code }) {
 
-  const codeArea = useRef(null)
-
   useEffect(() => {
-    const codeField = codeArea.current.lastChild.children[1]
-    hljs.highlightElement(codeField)
+    hljs.highlightAll()
   })
 
   return (
     <section className="project__container">
       <section className="project">
-        <section className="project__code" style={{ backgroundColor: color }} ref={codeArea}>
+        <section className="project__code" style={{ backgroundColor: color }}>
           <CodeField code={code} editable={false} />
         </section>
         <section className="project__infos">

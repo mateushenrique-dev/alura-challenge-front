@@ -1,29 +1,23 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { FaSearch } from "react-icons/fa";
 import Profile from './Profile'
-import useConfProject from '../../hooks';
 
 import './style.scss';
 
 function Header() {
 
-  const searchMobileRef = useRef(null);
-  const logoRef = useRef(null);
-
-  const { MenuRef } = useConfProject();
-
   function showMobileMenu(e) {
-    const menuMobile = MenuRef.current;
-    const menuIcone = e.target;
-    menuMobile.classList.toggle('menu__mobile');
-    menuMobile.classList.contains('menu__mobile') ?
-      menuIcone.setAttribute('src', '/assets/hamburguer-active.svg') :
-      menuIcone.setAttribute('src', '/assets/hamburguer.svg');
+    const menu = e.target.parentNode.parentNode.parentNode.parentNode.children[1].children[0]
+    const menuIcon = e.target
+    menu.classList.toggle('menu__mobile')
+    menu.classList.contains('menu__mobile') ?
+      menuIcon.setAttribute('src', '/assets/hamburguer-active.svg') :
+      menuIcon.setAttribute('src', '/assets/hamburguer.svg')
   }
 
-  function showMobileSearch() {
-    const searchMobile = searchMobileRef.current;
-    const logo = logoRef.current
+  function showMobileSearch(e) {
+    const searchMobile = e.currentTarget.parentNode.parentNode.parentNode.parentNode.children[1];
+    const logo = e.currentTarget.parentNode.parentNode.parentNode.parentNode.children[0]
     searchMobile.classList.toggle('search__active');
     logo.classList.toggle('hidden')
   }
@@ -31,15 +25,15 @@ function Header() {
   return (
     <header className="header">
       <div className="header__image__container">
-        <img className="header__image" src="/assets/Logo.svg" alt="Logo" ref={logoRef} />
+        <img className="header__image" src="/assets/Logo.svg" alt="Logo" />
       </div>
-      <input className="header__search" placeholder="Busque algo" type="text" ref={searchMobileRef} />
+      <input className="header__search" placeholder="Busque algo" type="text" />
       <div className="header__profile-container">
         <Profile />
       </div>
       <section className="header__responsive">
-        <div className="header__responsive__search" onClick={showMobileSearch}>
-          <div><FaSearch /></div>
+        <div className="header__responsive__search">
+          <div><FaSearch onClick={showMobileSearch} /></div>
         </div>
         <div className="header__responsive__menu" onClick={showMobileMenu}>
           <img src="/assets/hamburguer.svg" alt="Menu" />

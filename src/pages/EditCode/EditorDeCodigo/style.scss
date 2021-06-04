@@ -29,7 +29,9 @@
     overflow: hidden;
 
     & code {
+      display: block;
       width: 100%;
+      line-height: 1.1rem;
       height: 100%;
       background: transparent;
       outline: none;
