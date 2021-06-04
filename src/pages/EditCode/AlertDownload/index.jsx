@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import domtoimage from 'dom-to-image';
-import ConfProject from '../../../contexts/ConfProject';
+import useConfProject from '../../../hooks';
 
 import './style.scss';
 
 function AlertDownload({ popupRef }) {
 
-  const { codeFieldRef } = useContext(ConfProject)
+  const { codeFieldRef } = useConfProject()
 
   function convertToImage() {
     const extensao = popupRef.current.lastChild.children[1].value

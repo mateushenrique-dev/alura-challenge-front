@@ -1,17 +1,12 @@
-import React, { useContext, useEffect } from 'react';
-import ConfProject from '../../contexts/ConfProject';
+import React from 'react';
+import useConfProject from '../../hooks';
 import Project from './Project';
 import NoProject from './Project/NoProject';
 
 import './style.scss';
 
 function Comunity() {
-  const { codes, comunityTabRef, codeTabRef } = useContext(ConfProject);
-
-  useEffect(() => {
-    comunityTabRef.current.classList.add('menu__tab-active')
-    codeTabRef.current.classList.remove('menu__tab-active')
-  })
+  const { codes } = useConfProject();
 
   return (
     <main className="comunity">

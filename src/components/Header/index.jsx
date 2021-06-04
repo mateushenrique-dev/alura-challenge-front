@@ -1,7 +1,7 @@
-import React, { useContext, useRef } from 'react';
-import Profile from './Profile'
+import React, { useRef } from 'react';
 import { FaSearch } from "react-icons/fa";
-import ConfProject from '../../contexts/ConfProject';
+import Profile from './Profile'
+import useConfProject from '../../hooks';
 
 import './style.scss';
 
@@ -10,7 +10,7 @@ function Header() {
   const searchMobileRef = useRef(null);
   const logoRef = useRef(null);
 
-  const { MenuRef } = useContext(ConfProject);
+  const { MenuRef } = useConfProject();
 
   function showMobileMenu(e) {
     const menuMobile = MenuRef.current;

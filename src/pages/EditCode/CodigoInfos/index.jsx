@@ -1,25 +1,25 @@
-import React, { useContext, useRef } from 'react';
-import ConfProject from '../../../contexts/ConfProject';
+import React from 'react';
+import ButtonConverTo from '../ButtonConvertTo';
+import useConfProject from '../../../hooks';
 import Swal from 'sweetalert2';
 
 import './style.scss'
-import ButtonConverTo from '../ButtonConvertTo';
 
 function CodigoInfos() {
 
-  const { codeFieldRef, setDados } = useContext(ConfProject)
-  const ConfProjectRef = useRef(null)
+  const { setDados } = useConfProject()
 
   function handleHighLightColor(e) {
-    codeFieldRef.current.style.background = e.target.value
+    const editorCode = e.target.parentNode.parentNode.previousSibling.children[0]
+    editorCode.style.background = e.target.value
   }
 
   function saveProject(e) {
     e.preventDefault()
-    const nomeProjeto = ConfProjectRef.current[0].value
-    const descricaoProjeto = ConfProjectRef.current[1].value
-    const colorProjeto = ConfProjectRef.current[3].value
-    const codeField = codeFieldRef.current.lastChild.lastChild.textContent
+    const nomeProjeto = e.target[0].value
+    const descricaoProjeto = e.target[1].value
+    const colorProjeto = e.target[3].value
+    const codeField = e.target.previousSibling.children[0].children[0].children[1].textContent
 
     if (nomeProjeto && descricaoProjeto && colorProjeto) {
       Swal.fire(
@@ -45,7 +45,7 @@ function CodigoInfos() {
   }
 
   return (
-    <form className="infos" ref={ConfProjectRef} onSubmit={saveProject}
+    <form className="infos" onSubmit={saveProject}
     >
       <div className="seuProjeto">
         <h2 className="seuProjeto__title">Seu projeto</h2>
@@ -54,11 +54,11 @@ function CodigoInfos() {
       </div>
       <div className="personalizacao">
         <h2 className="personalizacao__title">Personalização</h2>
-        <select className="personalizacao__language" name="" id="personalizacao">
+        <select className="personalizacao__language" name="" id="language">
           <option value="">JavaScript</option>
           <option value="">TypeScript</option>
         </select>
-        <input className="personalizacao__color" onChange={handleHighLightColor} type="color" name="" id="" />
+        <input className="personalizacao__color" onChange={handleHighLightColor} type="color" name="" id="color" />
         <button type="submit" className="personalizacao__button">Salvar Projeto</button>
         <ButtonConverTo />
       </div>

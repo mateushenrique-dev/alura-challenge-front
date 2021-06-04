@@ -1,24 +1,25 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import useConfProject from '../../hooks';
 
 import { FaUsers } from "react-icons/fa";
 import { FaCode } from "react-icons/fa";
-import { Link } from 'react-router-dom';
-import ConfProject from '../../contexts/ConfProject';
+
+import { NavLink } from 'react-router-dom';
 
 function Tabs() {
 
-  const { codeTabRef, comunityTabRef } = useContext(ConfProject)
+  const { codeTabRef, comunityTabRef } = useConfProject()
 
   return (
     <>
-      <Link to="/" className="menu__tab codeTab" ref={codeTabRef}>
+      <NavLink exact to="/" className="menu__tab codeTab" activeClassName="menu__tab-active" ref={codeTabRef}>
         <div className="menu__tab__image"><FaCode /></div>
         <p className="menu__tab__name">Editor de código</p>
-      </Link>
-      <Link to="/comunidade" className="menu__tab comunityTab" ref={comunityTabRef}>
+      </NavLink>
+      <NavLink to="/comunidade" className="menu__tab comunityTab" activeClassName="menu__tab-active" ref={comunityTabRef}>
         <div className="menu__tab__image"><FaUsers /></div>
         <p className="menu__tab__name">Comunidade</p>
-      </Link>
+      </NavLink>
     </>
   )
 }

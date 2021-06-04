@@ -6,14 +6,13 @@ export function ConfProjectContext(props) {
 
   const codeFieldRef = useRef(null);
   const MenuRef = useRef(null);
-  const comunityTabRef = useRef(null);
-  const codeTabRef = useRef(null);
 
   const [codes, setCodes] = useState([]);
+  const [highlight, setHighlight] = useState(false);
 
   useEffect(() => {
     localStorage['Dados'] ? setCodes(JSON.parse(localStorage['Dados'])) : setCodes([])
-  }, [setCodes])
+  }, [])
 
   function setDados(dados) {
     const newDados = [...codes, dados]
@@ -22,7 +21,7 @@ export function ConfProjectContext(props) {
   }
 
   return (
-    <ConfProject.Provider value={{ codeFieldRef, MenuRef, setDados, setCodes, codes, comunityTabRef, codeTabRef }}>
+    <ConfProject.Provider value={{ codeFieldRef, MenuRef, setDados, setCodes, codes, highlight, setHighlight }}>
       {props.children}
     </ConfProject.Provider>
   )

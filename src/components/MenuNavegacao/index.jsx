@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
-import ConfProject from '../../contexts/ConfProject';
+import React from 'react';
+import useConfProject from '../../hooks';
 import Profile from '../Header/Profile';
+
 import './style.scss';
 
 import Tabs from './Tabs'
 
 function MenuNavegacao() {
 
-  const { MenuRef } = useContext(ConfProject)
+  const { MenuRef } = useConfProject()
 
   return (
     <nav className="menu" ref={MenuRef}>
