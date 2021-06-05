@@ -4,10 +4,11 @@ import useConfProject from '../../../hooks';
 import Swal from 'sweetalert2';
 
 import './style.scss'
+import { FaLanguage } from 'react-icons/fa';
 
 function CodigoInfos() {
 
-  const { setDados } = useConfProject()
+  const { setDados, setHighlightLanguage } = useConfProject()
 
   function handleHighLightColor(e) {
     const editorCode = e.target.parentNode.parentNode.previousSibling.children[0]
@@ -44,6 +45,11 @@ function CodigoInfos() {
     }
   }
 
+  function changeLanguage(e) {
+    const language = e.currentTarget.value
+    setHighlightLanguage(language)
+  }
+
   return (
     <form className="infos" onSubmit={saveProject}
     >
@@ -54,9 +60,25 @@ function CodigoInfos() {
       </div>
       <div className="personalizacao">
         <h2 className="personalizacao__title">Personalização</h2>
-        <select className="personalizacao__language" name="" id="language">
-          <option value="">JavaScript</option>
-          <option value="">TypeScript</option>
+        <select className="personalizacao__language" onChange={changeLanguage} name="" id="language">
+          <option value="javascript">javascript</option>
+          <option value="typescript">typescript</option>
+          <option value="html">html</option>
+          <option value="css">css</option>
+          <option value="css">scss</option>
+          <option value="c++">c++</option>
+          <option value="bash">Bash</option>
+          <option value="c#">c#</option>
+          <option value="markdown">markdown</option>
+          <option value="diff">diff</option>
+          <option value="ruby">ruby</option>
+          <option value="java">java</option>
+          <option value="json">json</option>
+          <option value="kotlin">kotlin</option>
+          <option value="php">php</option>
+          <option value="css">python</option>
+          <option value="swift">swift</option>
+          <option value="elixir">elixir</option>
         </select>
         <input className="personalizacao__color" onChange={handleHighLightColor} type="color" name="" id="color" />
         <button type="submit" className="personalizacao__button">Salvar Projeto</button>

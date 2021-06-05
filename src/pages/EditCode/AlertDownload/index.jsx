@@ -1,5 +1,6 @@
 import React from 'react';
 import domtoimage from 'dom-to-image';
+import saveAs from 'file-saver';
 
 import './style.scss';
 
@@ -12,19 +13,19 @@ function AlertDownload() {
     if (extensao === 'Png') {
       domtoimage.toPng(codeField)
         .then((response) => {
-          window.saveAs(response, `meuprojeto.png`);
+          saveAs(response, `meuprojeto.png`);
         })
     }
     else if (extensao === 'Jpeg') {
       domtoimage.toJpeg(codeField, { quality: 0.85 })
         .then((response) => {
-          window.saveAs(response, `meuprojeto.jpeg`);
+          saveAs(response, `meuprojeto.jpeg`);
         })
     }
     else if (extensao === 'Svg') {
       domtoimage.toSvg(codeField)
         .then((response) => {
-          window.saveAs(response, `meuprojeto.svg`);
+          saveAs(response, `meuprojeto.svg`);
         })
     }
   }

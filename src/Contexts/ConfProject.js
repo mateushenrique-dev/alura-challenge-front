@@ -5,7 +5,7 @@ const ConfProject = React.createContext();
 export function ConfProjectContext(props) {
 
   const [codes, setCodes] = useState([]);
-  const [highlight, setHighlight] = useState(false);
+  const [highlightLanguage, setHighlightLanguage] = useState('javascript');
 
   useEffect(() => {
     localStorage['Dados'] ? setCodes(JSON.parse(localStorage['Dados'])) : setCodes([])
@@ -18,7 +18,7 @@ export function ConfProjectContext(props) {
   }
 
   return (
-    <ConfProject.Provider value={{ setDados, setCodes, codes, highlight, setHighlight }}>
+    <ConfProject.Provider value={{ setDados, setCodes, codes, highlightLanguage, setHighlightLanguage }}>
       {props.children}
     </ConfProject.Provider>
   )
